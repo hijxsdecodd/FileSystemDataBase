@@ -1,4 +1,4 @@
-package entities;
+package practice;
 
 public class Address {
 

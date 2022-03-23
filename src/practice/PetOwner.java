@@ -1,4 +1,4 @@
-package entities;
+package practice;
 
 import java.util.Date;
 
@@ -16,11 +16,11 @@ public class PetOwner {
 
     private String curp;
 
-    private Date dob;
+    private String dob;
 
-    private int phone;
+    private String phone;
 
-    public PetOwner(Address address, String firstName, String lastNameP, String lastNameM, String email, String curp, Date dob, int phone) {
+    public PetOwner(String firstName, String lastNameP, String lastNameM, String email, String curp, String dob, int phone, Address address) {
         this.address = address;
         this.firstName = firstName;
         this.lastNameP = lastNameP;
@@ -79,19 +79,28 @@ public class PetOwner {
         this.curp = curp;
     }
 
-    public Date getDob() {
+    public String getDob() {
         return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public void getPets() {
+        this.pets = pets;
+    }
+
+    @Override
+    public String toString() {
+        return this.firstName +","+this.lastNameP+","+this.lastNameM+","+this.email+","+this.curp,+","+this.dob+","+this.phone+","+this.address;
     }
 }

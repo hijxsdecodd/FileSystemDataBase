@@ -1,8 +1,9 @@
-package entities;
+package practice;
 
-public class PetVetSalon{
 
-    private int phone;
+public class PetVetSalon {
+
+    private String phone;
 
     private String name;
 
@@ -10,23 +11,18 @@ public class PetVetSalon{
 
     private String officeHours;
 
-    public PetVetSalon(
-            String name,
-            Address address,
-            String officeHours,
-            int phone
-    ){
+    public PetVetSalon (String name, Address address, String officeHours, int phone) {
         this.phone = phone;
         this.name = name;
         this.address = address;
         this.officeHours = officeHours;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -52,5 +48,10 @@ public class PetVetSalon{
 
     public void setOfficeHours(String officeHours) {
         this.officeHours = officeHours;
+    }
+
+    @Override
+    public String toString() {
+        return this.name + "," + this.address + ","+ this.officeHours + "," + this.phone;
     }
 }

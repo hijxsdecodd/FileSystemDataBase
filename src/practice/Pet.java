@@ -1,4 +1,4 @@
-package entities;
+package practice;
 
 public class Pet {
 
@@ -59,4 +59,10 @@ public class Pet {
     public void setOwner(String owner) {
         this.owner = owner;
     }
+
+    @Override
+    public String toString() {
+        return this.name + "," + this.breed + "," + this.weight + "," + this.kind + "," + this.owner;
+    }
+
 }
