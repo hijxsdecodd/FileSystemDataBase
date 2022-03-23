@@ -51,8 +51,8 @@ public class PetOwnerFile extends ReadnWrite {
      * @param stringPetOwner -- La cadena  parsear
      * @return el objeto con los datos de la cadena
      */
-    private PetOwner parsePetOwner(String line) {
-        String line[] = cadenaOperador.trim().split(",");
+    private PetOwner parsePetOwner(String cad) {
+        String line[] = cad.trim().split(",");
 
         String address, firstName, lastNameP, lastNameM, email, curp, dob, phone, street, state;
         int zip, number;
@@ -69,7 +69,7 @@ public class PetOwnerFile extends ReadnWrite {
         lastNameP = line[2];
         lastNameM = line[3];
     	email = line[4];
-        curp = [5];
+        curp = line[5];
     	dob = line[6];
     	phone = line[7];
 

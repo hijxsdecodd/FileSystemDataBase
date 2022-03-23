@@ -11,7 +11,7 @@ public class PetVetSalon {
 
     private String officeHours;
 
-    public PetVetSalon (String name, Address address, String officeHours, int phone) {
+    public PetVetSalon (String name, Address address, String officeHours, String phone) {
         this.phone = phone;
         this.name = name;
         this.address = address;

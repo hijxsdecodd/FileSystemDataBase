@@ -20,7 +20,7 @@ public class PetOwner {
 
     private String phone;
 
-    public PetOwner(String firstName, String lastNameP, String lastNameM, String email, String curp, String dob, int phone, Address address) {
+    public PetOwner(String firstName, String lastNameP, String lastNameM, String email, String curp, String dob, String phone, Address address) {
         this.address = address;
         this.firstName = firstName;
         this.lastNameP = lastNameP;
@@ -95,12 +95,9 @@ public class PetOwner {
         this.phone = phone;
     }
 
-    public void getPets() {
-        this.pets = pets;
-    }
 
     @Override
     public String toString() {
-        return this.firstName +","+this.lastNameP+","+this.lastNameM+","+this.email+","+this.curp,+","+this.dob+","+this.phone+","+this.address;
+        return this.firstName +","+this.lastNameP+","+this.lastNameM+","+this.email+","+this.curp+","+this.dob+","+this.phone+","+this.address;
     }
 }

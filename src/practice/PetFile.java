@@ -2,7 +2,7 @@ package practice;
 
 import java.util.ArrayList;
 
-public class PetFile extends ReadnWriter {
+public class PetFile extends ReadnWrite {
 
 	public PetFile() {
 		super("Pet.csv");
@@ -25,12 +25,12 @@ public class PetFile extends ReadnWriter {
         for (int i = 0; i < lines.length; i++) 
             
             if (!lines[i].equals("null")) 
-                pets.add(parser(lines[i]));
+                pets.add(parse(lines[i]));
 		
 		return pets;
 	}
 
-	private void parse(String cad) {
+	private Pet parse(String cad) {
 		String line[] = cad.trim().split(",");
 
 		String name, breed, weight, kind, owner;

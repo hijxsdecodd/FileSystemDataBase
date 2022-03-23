@@ -9,7 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class ReadnWriter {
+public class ReadnWrite {
 
 	protected File file;
 
@@ -18,7 +18,7 @@ public class ReadnWriter {
 	 *
 	 * @param name names file
 	 */
-	public ReadnWriter(String name) {
+	public ReadnWrite(String name) {
 		this.file = new File(name);
 
 	}
@@ -43,7 +43,7 @@ public class ReadnWriter {
     public String[] read() throws FileNotExists {
     	Scanner sc = null;
 		
-		String lines = "";
+		String line = "";
 	
 		try {
 	            sc = new Scanner(file);
@@ -53,10 +53,10 @@ public class ReadnWriter {
 	            }
 
 		} catch (FileNotFoundException e) {
-	            throw new FileNoExists("There's nothing to read");
+	            throw new FileNotExists("There's nothing to read");
 	        }
 
-		String others [] = lines.split("\\|");
+		String others [] = line.split("\\|");
 		return others;
     }
 

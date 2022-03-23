@@ -11,7 +11,7 @@ public class PetVetSalonFile extends ReadnWrite {
     /**
      * Constructor por omision que crea el archivo Operador.csv
      */
-    public PetOwnerFile() {
+    public PetVetSalonFile() {
         super("PetVetSalon.csv");
     }
 
@@ -20,10 +20,10 @@ public class PetVetSalonFile extends ReadnWrite {
      *
      * @param owners 
      */
-    public void writePetVetSalon(ArrayList<PetOwner> petVetSalons) {
+    public void writePetVetSalon(ArrayList<PetVetSalon> salons) {
     	String line = "";
 
-    	for (PetVetSalons  salon : petVetSalons)
+    	for (PetVetSalon  salon : salons)
     		line += salon + "\n";
 
     	super.write(line);
@@ -35,31 +35,40 @@ public class PetVetSalonFile extends ReadnWrite {
      * @return operadores -- El arreglo de operadores
      * @throws FileNotFound -- Se lanza la excepción cuando el archivo no existe
      */
-    public ArrayList<PetVetSalons> readPetVetSalons() throws FileNotExists {
+    public ArrayList<PetVetSalon> readPetVetSalons() throws FileNotExists {
         String lines[] = super.read();
 
-        ArrayList<PetOwner> petVetSalons = new ArrayList<>();
+        ArrayList<PetVetSalon> salons = new ArrayList<>();
         
         for (int i = 0; i < lines.length; i++) 
             
             if (!lines[i].equals("null"))
-                petVetSalons.add(parsePetVetSalons(lines[i]));
+                salons.add(parsePetVetSalons(lines[i]));
 
-        return petOwners;
+        return salons;
     }
 
-    private PetVetSalon parsePetVetSalons(String line) {
+    private PetVetSalon parsePetVetSalons(String cad) {
 
-        String line[] = cadenaOperador.trim().split(",");
+        String line[] = cad.trim().split(",");
 
-        String name, address, officeHours, phone;
+        String name, address, officeHours, phone, state, street;
+
+        int number, zip;
+
+        String arr[] = line[0].split(" ");
+
+        state = arr[0];
+        street = arr[1];
+        number = Integer.parseInt(arr[2]);
+        zip = Integer.parseInt(arr[3]);
 
         name = line[0];
         address = line[1];
         officeHours = line[2];
         phone = line[3];
 
-        return new PetVetSalon(name, address, officeHours,phone);
+        return new PetVetSalon(name, new Address(state, street, number, zip), officeHours, phone);
     }
 
 }
