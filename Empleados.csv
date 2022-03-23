@@ -1,0 +1,3 @@
+Nombres, Apellido Paterno, Apellido Materno, Identificador, Puesto, com.fbd.entities.Vivero en el que trabaja, Identificador del com.fbd.entities.Vivero, Salario, Telefono
+Eduardo,         Sanchez,         Velasco, 00001,         Gerente, Vivero1 , 00001,  650.00, 2283650271
+Edgar,         Dominguez,          Flores, 00002,         Vendedor, Vivero1 , 00001,  200.00, 2283650278
