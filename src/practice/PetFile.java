@@ -41,7 +41,7 @@ public class PetFile extends ReadnWriter {
 		kind = line[3];
 		owner = line[4];
 
-		return new Pet(name, breed, weight, kind, owner);
+		return new Pet(name, breed, Integer.parseInt(weight), kind, owner);
 	}
 
 

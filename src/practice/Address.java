@@ -48,4 +48,12 @@ public class Address {
     public void setZip(int zip) {
         this.zip = zip;
     }
+
+    @Override
+    public String toString() {
+        return this.state +" "+this.street+" "+this.number+" "+this.zip;
+    }
+   
+
+    
 }
