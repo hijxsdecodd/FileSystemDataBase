@@ -30,10 +30,11 @@ public class Main {
 
 	public static void main(String[] args) {
 
-
+         /**
 		PetFile petFile = new PetFile();
 		PetOwnerFile ownerFile = new PetOwnerFile();
-		PetVetSalonFile salonFile = new PetVetSalonFile();
+		PetVetSalonFile salonFile = new PetVetSalonFile();*/
+
 
 		Pet pet = new Pet("milaneso", "perro", 25, "golden", "Alejandra O G");
 		System.out.println(pet);
@@ -57,7 +58,6 @@ public class Main {
 
 				
 			} 
-
 		} while (option != 0);
 		System.out.println("¡ADIOS!");*/
 	}
