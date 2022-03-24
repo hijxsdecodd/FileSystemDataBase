@@ -1,23 +1,21 @@
-
 import java.util.ArrayList;
 
 /**
- * Clase que permite escribir y leer a Operadores sobre un archivo CSV
+ * Class that allows Operators to write and read a CSV file.
  * @version 23/03/2022
  */
 public class PetVetSalonFile extends ReadnWrite {
 
     /**
-     * Constructor por omision que crea el archivo Operador.csv
+     * Default constructor that creates the file "Operador.csv".
      */
     public PetVetSalonFile() {
         super("PetVetSalon.csv");
     }
 
     /**
-     * Metodo que prepara el arreglo de PetVetSalon  para que puede ser guardado
-     *
-     * @param owners 
+     * Method that prepares the PetVet Salon array so it can be saved.
+     * @param salons the vets array.
      */
     public void writePetVetSalon(ArrayList<PetVetSalon> salons) {
     	String line = "";
@@ -29,10 +27,9 @@ public class PetVetSalonFile extends ReadnWrite {
 	}
     
     /**
-     * Metodo que convierte un arreglo de String a un arreglo de PetOwner
-     *
-     * @return operadores -- El arreglo de operadores
-     * @throws FileNotFound -- Se lanza la excepción cuando el archivo no existe
+     * Method that converts an array of String to an array of PetSalon.
+     * @return the operator array.
+     * @throws FileNotFound in case the file is not found.
      */
     public ArrayList<PetVetSalon> readPetVetSalons() throws FileNotExists {
         String lines[] = super.read();
@@ -47,6 +44,11 @@ public class PetVetSalonFile extends ReadnWrite {
         return salons;
     }
 
+    /**
+     * Method to parse the PetVet salons and their attributes.
+     * @param cad the string to parse.
+     * @return the object with the string data.
+     */
     private PetVetSalon parsePetVetSalons(String cad) {
 
         String line[] = cad.trim().split(",");

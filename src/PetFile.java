@@ -1,11 +1,22 @@
 import java.util.ArrayList;
 
+/**
+ * Class that allows us to define a PetVet salon.
+ * @version 23/03/2022
+ */
 public class PetFile extends ReadnWrite {
 
+	/**
+	 * Create a new ReadnWriter object.
+	 */
 	public PetFile() {
 		super("Pet.csv");
 	}
 
+	/**
+	 * Method that prepares the pets array so it can be saved.
+	 * @param pets the pets array.
+	 */
 	public void writePet(ArrayList<Pet> pets) {
 		String line = "";
 
@@ -15,6 +26,11 @@ public class PetFile extends ReadnWrite {
 		super.write(line);
 	}
 
+	/**
+	 * Method that converts an array of String to an array of Pet.
+     * @return the pet array.
+	 * @throws FileNotExists in case the file is not found.
+	 */
 	public ArrayList<Pet> readPet() throws FileNotExists {
 		String lines[] = super.read();
         
@@ -28,6 +44,11 @@ public class PetFile extends ReadnWrite {
 		return pets;
 	}
 
+	/**
+	 * Method that receives a string and parses data to create a pet.
+	 * @param cad the string to parse.
+	 * @return the object with the string data.
+	 */
 	private Pet parse(String cad) {
 		String line[] = cad.trim().split(",");
 
@@ -41,8 +62,5 @@ public class PetFile extends ReadnWrite {
 
 		return new Pet(name, breed, Integer.parseInt(weight), kind, owner);
 	}
-
-
-
 
 }
