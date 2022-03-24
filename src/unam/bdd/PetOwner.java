@@ -1,3 +1,5 @@
+package unam.bdd;
+
 public class PetOwner {
 
     private Address address;

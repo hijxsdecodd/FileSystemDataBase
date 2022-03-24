@@ -1,3 +1,5 @@
+package unam.bdd;
+
 /**
  * Class that allows us to define a PetVet salon.
  * @version 23/03/2022
