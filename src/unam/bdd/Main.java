@@ -74,8 +74,7 @@ public class Main {
 			option = getNumber(0, 3);
 		
 			if (option == 1) {
-
-				
+				FileDelete delete = new FileDelete(pets, owners, salons, writerPet, writerPetOwner, writerSalon);
 			} 
 		} while (option != 0);
 		System.out.println("¡ADIOS!");

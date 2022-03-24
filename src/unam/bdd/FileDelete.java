@@ -5,10 +5,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-
+/* class to eliminate pet, owner and veterinarian registrations. */
 public class FileDelete {
+    /* pet registries */
     private ArrayList<Pet> pets;
+    /* owners registries */
     private ArrayList<PetOwner> owners;
+    /* Salons/veterinarian registries */
     private ArrayList<PetVetSalon> salons;
 
     public FileDelete(ArrayList<Pet> pets,ArrayList<PetOwner> owners, ArrayList<PetVetSalon> salons,PetFile petf, PetOwnerFile ownerf, PetVetSalonFile salonf){
@@ -62,6 +65,7 @@ public class FileDelete {
             }
         }
     }
+    /** method to eliminate owner registries */
     public ArrayList<PetOwner> deleteOwner(){
         for (PetOwner petOwner : owners) {
             System.out.println(petOwner.getCurp()+ ": " + petOwner.getFirstName());
@@ -85,6 +89,7 @@ public class FileDelete {
         }
 
     }
+    /**  method to eliminate pet registries*/
     public ArrayList<Pet> deletePet(){
         for (Pet pet : pets) {
             System.out.println(pet.getKind()+ ": " + pet.getName());
@@ -111,6 +116,7 @@ public class FileDelete {
             System.out.println("No se encontro registro de una mascota con esos datos, escriba bien los datos.");
         }
     }
+    /** method to eliminate salon registries */
     public ArrayList<PetVetSalon> deleteSalon(){
         for (PetVetSalon salon : salons) {
             System.out.println(salon.getName());
