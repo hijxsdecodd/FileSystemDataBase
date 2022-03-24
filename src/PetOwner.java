@@ -1,7 +1,3 @@
-package practice;
-
-import java.util.Date;
-
 public class PetOwner {
 
     private Address address;

@@ -1,6 +1,3 @@
-package practice;
-
-
 public class PetVetSalon {
 
     private String phone;

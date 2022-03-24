@@ -1,4 +1,3 @@
-package practice;
 
 import java.util.ArrayList;
 
@@ -53,8 +52,7 @@ public class PetOwnerFile extends ReadnWrite {
      */
     private PetOwner parsePetOwner(String cad) {
         String line[] = cad.trim().split(",");
-
-        String address, firstName, lastNameP, lastNameM, email, curp, dob, phone, street, state;
+        String firstName, lastNameP, lastNameM, email, curp, dob, phone, street, state;
         int zip, number;
 
         String arr[] = line[0].split(" ");

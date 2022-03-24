@@ -1,5 +1,3 @@
-package practice;
-
 public class Pet {
 
     private String name;

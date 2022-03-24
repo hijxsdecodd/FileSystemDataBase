@@ -1,6 +1,5 @@
-package practice;
-
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -36,10 +35,27 @@ public class Main {
 		PetVetSalonFile salonFile = new PetVetSalonFile();*/
 
 
+		//asi escriben una mascota
 		Pet pet = new Pet("milaneso", "perro", 25, "golden", "Alejandra O G");
 		System.out.println(pet);
-		
-		/**
+		ArrayList<Pet> pets  = new ArrayList<>();
+		PetFile writerPet = new PetFile();
+		pets.add(pet);
+		writerPet.writePet(pets);
+
+		ArrayList<PetOwner> owners = new ArrayList<>();
+		Address adress1 = new Address("edomex", "sur", 2, 432);
+		PetOwner owner = new PetOwner("Jose", "pEDRO", "Mendez", "jose@gmail", "DASFDF", "11/11/3021", "5591827364", adress1);
+		owners.add(owner);
+		PetOwnerFile writerPetOwner = new PetOwnerFile();
+		writerPetOwner.writeOwner(owners);
+
+		ArrayList<PetVetSalon> salons = new ArrayList<>();
+		PetVetSalon salon1 = new PetVetSalon("Vnidades", adress1, "10-18", "5591827364");
+		salons.add(salon1);
+		PetVetSalonFile writerSalon = new PetVetSalonFile();
+		writerSalon.writePetVetSalon(salons);
+
 		int option;
 
 		try {
@@ -48,17 +64,18 @@ public class Main {
 
 		do {
 			System.out.println("\n[0] SALIR\n" + 
-							   	 "[1] Cargar \n" +
-							   	 "[2] "
+							   	 "[1] Eliminar \n" +
+							   	 "[2] Agregar \n" +
+								 "[3] Consultar \n" +
 							     "=============================================================\n");
 
-			option = getNumber(0, 1);
+			option = getNumber(0, 3);
 		
 			if (option == 1) {
 
 				
 			} 
 		} while (option != 0);
-		System.out.println("¡ADIOS!");*/
+		System.out.println("¡ADIOS!");
 	}
 }

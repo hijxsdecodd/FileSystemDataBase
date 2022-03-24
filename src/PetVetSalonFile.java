@@ -1,4 +1,3 @@
-package practice;
 
 import java.util.ArrayList;
 
@@ -52,11 +51,11 @@ public class PetVetSalonFile extends ReadnWrite {
 
         String line[] = cad.trim().split(",");
 
-        String name, address, officeHours, phone, state, street;
+        String name, officeHours, phone, state, street;
 
         int number, zip;
 
-        String arr[] = line[0].split(" ");
+        String arr[] = line[1].split(" ");
 
         state = arr[0];
         street = arr[1];
@@ -64,7 +63,6 @@ public class PetVetSalonFile extends ReadnWrite {
         zip = Integer.parseInt(arr[3]);
 
         name = line[0];
-        address = line[1];
         officeHours = line[2];
         phone = line[3];
 
