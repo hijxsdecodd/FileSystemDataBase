@@ -1,20 +1,21 @@
-
 import java.util.ArrayList;
 
 /**
- *Clase que permite escribir y leer a Operadores sobre un archivo CSV
+ ** Class that allows Operators to write and read a CSV file.
  * @version 23/03/2022
  */
 public class PetOwnerFile extends ReadnWrite {
     
+    /**
+     * Create a new ReadnWriter object.
+     */
     public PetOwnerFile() {
         super("PetOwner.csv");
     }
 
     /**
-     * Metodo que prepara el arreglo de owners  para que puede ser guardado
-     *
-     * @param owners -- El arreglo de operador
+     * Method that prepares the owners array so it can be saved.
+     * @param owners the operator array.
      */
     public void writeOwner(ArrayList<PetOwner> owners) {
     	String lineOwner = "";
@@ -26,10 +27,9 @@ public class PetOwnerFile extends ReadnWrite {
 	}
     
     /**
-     * Metodo que convierte un arreglo de String a un arreglo de PetOwner
-     *
-     * @return operadores -El arreglo de operadores
-     * @throws FileNotExists Se lanza la excepción cuando el archivo no existe
+     * Method that converts an array of String to an array of PetOwner.
+     * @return the operator array.
+     * @throws FileNotFound in case the file is not found.
      */
     public ArrayList<PetOwner> readOwners() throws FileNotExists {
         String lines[] = super.read();
@@ -45,10 +45,9 @@ public class PetOwnerFile extends ReadnWrite {
     }
 
     /**
-     * Metodo que recibe una cadena y parsea los datos para crear a un Operador
-     *
-     * @param stringPetOwner -- La cadena  parsear
-     * @return el objeto con los datos de la cadena
+     * Method that receives a string and parses data to create an Operator.
+     * @param stringPetOwner the string to parse.
+     * @return the object with the string data.
      */
     private PetOwner parsePetOwner(String cad) {
         String line[] = cad.trim().split(",");
@@ -73,6 +72,5 @@ public class PetOwnerFile extends ReadnWrite {
 
         return new PetOwner(firstName, lastNameP,lastNameM, email, curp, dob, phone, new Address(state, street, number, zip));
 	}
-
  
 }

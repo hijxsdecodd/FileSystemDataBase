@@ -1,19 +1,19 @@
-import java.util.ArrayList;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Class that allows us to write and read a file.
+ * @version 23/03/2022
+ */
 public class ReadnWrite {
 
 	protected File file;
 
 	/**
-	 * Create a new ReadnWriter object
-	 *
+	 * Create a new ReadnWriter object.
 	 * @param name names file
 	 */
 	public ReadnWrite(String name) {
@@ -23,8 +23,7 @@ public class ReadnWrite {
 
 	/**
 	 * Write the data in the file.
-	 *
-	 * @param line the data. 
+	 * @param line the data.
 	 */
 	public void write(String line) {
         FileWriter writer;
@@ -38,6 +37,11 @@ public class ReadnWrite {
         } catch (IOException e) { System.out.println(e.getMessage()); }
     }
 
+	/**
+	 * Read the data in the file.
+	 * @return the data.
+	 * @throws FileNotExists in case the file is not found.
+	 */
     public String[] read() throws FileNotExists {
     	Scanner sc = null;
 		
@@ -57,8 +61,5 @@ public class ReadnWrite {
 		String others [] = line.split("\\|");
 		return others;
     }
-
-
-
 
 }
