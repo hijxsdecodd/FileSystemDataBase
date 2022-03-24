@@ -64,19 +64,43 @@ public class Main {
 			
 		} catch (Exception e) { System.out.println(e.getMessage()); }
 
+		System.out.println("\n[0] SALIR\n" + 
+						   	 "[1] Eliminar \n" +
+						   	 "[2] Agregar \n" +
+							 "[3] Consultar \n" +
+						     "=============================================================\n");
+
 		do {
-			System.out.println("\n[0] SALIR\n" + 
-							   	 "[1] Eliminar \n" +
-							   	 "[2] Agregar \n" +
-								 "[3] Consultar \n" +
-							     "=============================================================\n");
-
-			option = getNumber(0, 3);
-		
-			if (option == 1) {
-
-				
-			} 
+			option = sc.nextInt();
+			if (option == 1) {				
+			}
+			else if (option == 2) {
+				System.out.println("Agrega");				
+				System.out.println("What do you want to add?");
+				System.out.println("\n[4] VetSalon\n" + "[5] Owner \n" + "[6] Pet \n" +						   	 
+						     "=============================================================\n");
+				int a = sc.nextInt();
+				if (a == 4) {
+					FileAdd.addVetSalon();
+					break;
+				}
+				if (a == 5) {
+					FileAdd.addOwner();
+					break;
+				}
+				if (a == 6) {
+					FileAdd.addPet();					
+					break;
+				}
+				else {
+					System.out.println("Opción incorrecta");
+					System.exit(0);
+				}
+			}
+			else if (option == 3) {
+				System.out.println("Busca");
+				break;
+			}
 		} while (option != 0);
 		System.out.println("¡ADIOS!");
 	}

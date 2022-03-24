@@ -1,58 +1,43 @@
 package unam.bdd;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class FileAdd {
     
-    public void agregarEmpleado() {
+    /**
+     * Method to write a new Owner into de CSV file.
+     */
+    public static void addOwner() {
         Scanner sc = new Scanner(System.in);
         do {
             String firstName;
             String lastNameP;
             String lastNameM;
             String email;         
-            String dob;
-            Address address;
-            String curp;
+            String dob;                        
             String phone;
-            boolean condition;
+            String curp;
+            Address address;
+            boolean condition;          
             do {
                 condition = true;
-                System.out.println("Nombre del cloente en el que trabajara el empleado: ");
-                System.out.println("Te mostraremos los viveros existentes");
-                System.out.println(robot.getViverosStringDireccion());
-                System.out.println("(presione solo Enter sin escribir algo para cancelar)");
-                nombreDelVivero = sc.nextLine();
-                if(nombreDelVivero.equals("")){
-                    System.out.println("Cancelando operacion");
-                    return;
-                }
-                if(robot.getRegistro().busquedaPorNombre(nombreDelVivero) != null){
-                    System.out.println("Listo. Nombre del vivero anotado.");
-                    vivero = robot.getRegistro().busquedaPorNombre(nombreDelVivero);
-                    condition = false;
-                    continue;
-                }
-                System.out.println("No hay registros de viveros con ese nombre, eliga uno de la lista.");
-            } while (condition);
-            do {
-                condition = true;
-                System.out.println("Nombre: ");
-                System.out.println("(presione solo Enter sin escribir algo para cancelar)");
-                nombre = sc.nextLine();
-                if(nombre.equals("")){
-                    System.out.println("Cancelando operacion");
+                System.out.println("Owner's name: ");
+                System.out.println("(press Enter to cancel)");
+                firstName = sc.nextLine();
+                if(firstName.equals("")){
+                    System.out.println("Canceling...");
                     return;
                 }
                 condition = false;
             } while (condition);
             do {
                 condition = true;
-                System.out.println("Apellido Paterno: ");
-                System.out.println("(presione solo Enter sin escribir algo para cancelar)");
-                apellidoP = sc.nextLine();
-                if(apellidoP.equals("")){
-                    System.out.println("Cancelando operacion");
+                System.out.println("Father's surname: ");
+                System.out.println("(press Enter to cancel)");
+                lastNameP = sc.nextLine();
+                if(lastNameP.equals("")){
+                    System.out.println("Canceling...");
                     return;
                 }
                 condition = false;
@@ -60,96 +45,244 @@ public class FileAdd {
 
             do {
                 condition = true;
-                System.out.println("Apellido Materno: ");
-                System.out.println("(presione solo Enter sin escribir algo para cancelar)");
-                apellidoM = sc.nextLine();
-                if(apellidoM.equals("")){
-                    System.out.println("Cancelando operacion");
+                System.out.println("Mother's surname: ");
+                System.out.println("(press Enter to cancel)");
+                lastNameM = sc.nextLine();
+                if(lastNameM.equals("")){
+                    System.out.println("Canceling...");
                     return;
                 }
                 condition = false;
             } while (condition);
             do {
                 condition = true;
-                System.out.println("Puesto: ");
-                System.out.println("(presione solo Enter sin escribir algo para cancelar)");
-                puesto = sc.nextLine();
-                if(puesto.equals("")){
-                    System.out.println("Cancelando operacion");
+                System.out.println("Email: ");
+                System.out.println("(press Enter to cancel)");
+                email = sc.nextLine();
+                if(email.equals("")){
+                    System.out.println("Canceling...");
                     return;
                 }
                 condition = false;
             } while (condition);
             do {
                 condition = true;
-                System.out.println("Identificador (5 digitos): ");
-                System.out.println("(presione solo Enter sin escribir algo para cancelar)");
-                try {
-                    identificador = sc.nextInt();
-                } catch (InputMismatchException e) {
-                    System.out.println("Ocurrio un error al ingresar el identificador");
-                    continue;
-                }
-                if(identificador.toString().equals("")){
-                    System.out.println("Cancelando operacion");
+                System.out.println("Day of birth: ");
+                System.out.println("(press Enter to cancel)");
+                dob = sc.nextLine();
+                if(dob.toString().equals("")){
+                    System.out.println("Canceling...");
                     return;
-                }
-                if(identificador < 0 || identificador > 99999){
-                    System.out.println("Ingresar un numero positivo de 5 digitos por favor");
-                    continue;
-                }
-                if(robot.existeEmpConID(identificador)){
-                    System.out.println("Ya existe un empleado con este identificador, ponga otro.");
-                    continue;
+                }                
+                condition = false;
+            } while (condition);
+            do {
+                condition = true;
+                System.out.println("Phone (10 digits): ");
+                System.out.println("(press Enter to cancel)");
+                phone = sc.nextLine();
+                if(phone.toString().equals("")){
+                    System.out.println("Canceling...");
+                    return;
+                }                
+                condition = false;
+            } while (condition);
+            do {
+                condition = true;
+                System.out.println("Curp: ");
+                System.out.println("(press Enter to cancel)");            
+                curp = sc.nextLine();                
+                if(curp.toString().equals("")){
+                    System.out.println("Canceling...");
+                    return;
                 }
                 condition = false;
             } while (condition);
             do {
                 condition = true;
-                System.out.println("Telefono (10 digitos): ");
-                System.out.println("(presione solo Enter sin escribir algo para cancelar)");
-                try {
-                    telefono = sc.nextLong();
-                } catch (InputMismatchException e) {
-                    System.out.println("Ocurrio un error al ingresar el identificador");
-                    continue;
-                }
-                if(telefono.toString().equals("")){
-                    System.out.println("Cancelando operacion");
+                System.out.println("Address: ");
+                System.out.println("(press Enter to cancel)");
+                System.out.println("State: ");
+                String state = sc.nextLine();
+                if(state.toString().equals("")){
+                    System.out.println("Canceling...");
                     return;
-                }
-                if(telefono < 0 || telefono.toString().length() != 10){
-                    System.out.println("Ingresar un numero positivo de 10 digitos por favor.(Dato: Ningun numero telefonico inicia con 0)");
-                    continue;
-                }
-                condition = false;
-            } while (condition);
-            do {
-                condition = true;
-                System.out.println("Salaraio: ");
-                System.out.println("(presione solo Enter sin escribir algo para cancelar)");
-                try {
-                    salario = sc.nextDouble();
-                } catch (InputMismatchException e) {
-                    System.out.println("Ocurrio un error al ingresar el identificador");
-                    continue;
-                }
-                if(salario.toString().equals("")){
-                    System.out.println("Cancelando operacion");
-                    return;
-                }
-                if(salario < 0){
-                    System.out.println("Ingresar un numero positivo por favor");
-                    continue;
-                }
+                }                           
+                System.out.println("Street: ");
+                String street = sc.nextLine();
+                System.out.println("Number: ");
+                int number = sc.nextInt();
+                System.out.println("ZIP: ");
+                int zip = sc.nextInt();                                
+                address = new Address(state, street, number, zip);                
                 condition = false;
             } while (condition);
             // (String firstName, String lastNameP, String lastNameM, String email, String curp, String dob, String phone, Address address) {
             PetOwner owner = new PetOwner(firstName, lastNameP, lastNameM, email, curp, dob, phone, address);
-            System.out.println("Listo se creo el empleado " + nombre);
-            robot.getRegistro().agregarEmpleado(empleado, vivero);
-            System.out.println("Se ha agregado el empleado a los registros");
-            System.out.println("Desea agregar otro empleado (Y/N)");
+            System.out.println("Listo se creo el cliente " + firstName);
+            ReadnWrite bdd = new ReadnWrite("PetOwner.csv");
+            bdd.write(owner.toString());
+            System.out.println("Owner saved");
+            System.out.println("Want to add more? (Y/N)");
+            String continuar = sc.nextLine();
+            if(!continuar.equals("Y")){
+                break;
+            }
+            
+        } while (true);
+    }
+
+     /**
+     * Method to write a new Pet into de CSV file.
+     */
+    public static void addPet() {
+        Scanner sc = new Scanner(System.in);
+        do {
+            String name;
+            String breed;
+            int weight = 0;
+            String kind;
+            String owner;  
+            boolean condition;  
+            do {
+                condition = true;
+                System.out.println("Pet's name: ");
+                System.out.println("(press Enter to cancel)");
+                name = sc.nextLine();
+                if(name.equals("")){
+                    System.out.println("Canceling...");
+                    return;
+                }
+                condition = false;
+            } while (condition);
+            do {
+                condition = true;
+                System.out.println("Pet's breed: ");
+                System.out.println("(press Enter to cancel)");
+                breed = sc.nextLine();
+                if(breed.equals("")){
+                    System.out.println("Canceling...");
+                    return;
+                }
+                condition = false;
+            } while (condition);
+            do {
+                condition = true;
+                System.out.println("Kind of Pet: ");
+                System.out.println("(press Enter to cancel)");
+                kind = sc.nextLine();
+                if(kind.equals("")){
+                    System.out.println("Canceling...");
+                    return;
+                }
+                condition = false;
+            } while (condition);
+            do {
+                condition = true;
+                System.out.println("Pet's owner: ");
+                System.out.println("(press Enter to cancel)");
+                owner = sc.nextLine();
+                if(owner.toString().equals("")){
+                    System.out.println("Canceling...");
+                    return;
+                }                
+                condition = false;
+            } while (condition);
+            do {
+                condition = true;
+                System.out.println("Pets's weight: ");
+                System.out.println("(press Enter to cancel)");
+                weight = sc.nextInt();                
+                if(Integer.valueOf(weight).toString().equals("")){
+                    System.out.println("Canceling");
+                    return;
+                }
+                condition = false;
+            } while (condition);            
+            
+            Pet pet = new Pet(name, breed, weight, kind, owner);
+            System.out.println("Pet created " + name);
+            ReadnWrite bdd = new ReadnWrite("Pet.csv");
+            bdd.write(pet.toString());
+            System.out.println("Pet saved");
+            System.out.println("Want to add more? (Y/N)");
+            String continuar = sc.nextLine();
+            if(!continuar.equals("Y")){
+                break;
+            }            
+        } while (true);
+    }
+
+     /**
+     * Method to write a new VetSalon into de CSV file.
+     */
+    public static void addVetSalon() {
+        Scanner sc = new Scanner(System.in);
+        do {
+            String phone;
+            String name;
+            Address address;
+            String officeHours;
+            boolean condition;      
+            do {
+                condition = true;
+                System.out.println("Vet Salon name: ");
+                System.out.println("(press Enter to cancel)");
+                name = sc.nextLine();
+                if(name.equals("")){
+                    System.out.println("Canceling...");
+                    return;
+                }
+                condition = false;
+            } while (condition);
+            do {
+                condition = true;
+                System.out.println("Vet Salon phone: ");
+                System.out.println("(press Enter to cancel)");
+                phone = sc.nextLine();
+                if(phone.equals("")){
+                    System.out.println("Canceling...");
+                    return;
+                }
+                condition = false;
+            } while (condition);
+
+            do {
+                condition = true;
+                System.out.println("Vet Salon hours: ");
+                System.out.println("(press Enter to cancel)");
+                officeHours = sc.nextLine();
+                if(officeHours.equals("")){
+                    System.out.println("Canceling...");
+                    return;
+                }
+                condition = false;
+            } while (condition);            
+            do {
+                condition = true;
+                System.out.println("Address: ");
+                System.out.println("(press Enter to cancel)");
+                System.out.println("State: ");
+                String state = sc.nextLine();
+                if(state.toString().equals("")){
+                    System.out.println("Canceling...");
+                    return;
+                }                           
+                System.out.println("Street: ");
+                String street = sc.nextLine();
+                System.out.println("Number: ");
+                int number = sc.nextInt();
+                System.out.println("ZIP: ");
+                int zip = sc.nextInt();                                
+                address = new Address(state, street, number, zip);                
+                condition = false;
+            } while (condition);
+            PetVetSalon salon = new PetVetSalon(name, address, officeHours, phone);
+            System.out.println("Salon created " + name);
+            ReadnWrite bdd = new ReadnWrite("PetVetSalon.csv");
+            bdd.write(salon.toString());
+            System.out.println("Salon saved");
+            System.out.println("Want to add more? (Y/N)");
             String continuar = sc.nextLine();
             if(!continuar.equals("Y")){
                 break;
