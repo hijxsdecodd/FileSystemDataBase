@@ -62,17 +62,19 @@ public class Main {
 
 		try {
 			
-		} catch (Exception e) { System.out.println(e.getMessage()); }
-
-		System.out.println("\n[0] SALIR\n" + 
-						   	 "[1] Eliminar \n" +
-						   	 "[2] Agregar \n" +
-							 "[3] Consultar \n" +
-						     "=============================================================\n");
+		} catch (Exception e) { System.out.println(e.getMessage()); }		
 
 		do {
-			option = sc.nextInt();
-			if (option == 1) {				
+			System.out.println("\n[0] SALIR\n" + 
+							   	 "[1] Eliminar \n" +
+							   	 "[2] Agregar \n" +
+								 "[3] Consultar \n" +
+							     "=============================================================\n");
+
+			option = getNumber(0, 3);
+		
+			if (option == 1) {
+				FileDelete delete = new FileDelete(pets, owners, salons, writerPet, writerPetOwner, writerSalon);
 			}
 			else if (option == 2) {
 				System.out.println("Agrega");				
